@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{05879F90-813C-4D29-A1F2-468FC4A01C04}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamieMagee.MicrosoftSecurityUpdates.Client", "src\JamieMagee.MicrosoftSecurityUpdates.Client\JamieMagee.MicrosoftSecurityUpdates.Client.csproj", "{ECC4AB01-844B-4A22-84C4-367C9B42362E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamieMagee.MicrosoftSecurityUpdates.Schema", "src\JamieMagee.MicrosoftSecurityUpdates.Schema\JamieMagee.MicrosoftSecurityUpdates.Schema.csproj", "{FEAA761A-324B-4D00-9FF4-476BA4DAF97E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA7CB001-EBF9-4440-AFEC-2B468E500FE2}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+		dotnet-tools.json = dotnet-tools.json
+		global.json = global.json
+		LICENSE.md = LICENSE.md
+		renovate.json = renovate.json
+		build.cake = build.cake
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamieMagee.MicrosoftSecurityUpdates.Client.Test", "test\JamieMagee.MicrosoftSecurityUpdates.Client.Test\JamieMagee.MicrosoftSecurityUpdates.Client.Test.csproj", "{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{279EDFD0-207C-4F86-BE17-CD43375E7757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{083BDC77-8196-4E34-8347-B53E1423EACA}"
+	ProjectSection(SolutionItems) = preProject
+		.github\release-drafter.yml = .github\release-drafter.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{F48BB1B4-C5EB-4409-A8F0-098087304A61}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\release-drafter.yml = .github\workflows\release-drafter.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECC4AB01-844B-4A22-84C4-367C9B42362E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC4AB01-844B-4A22-84C4-367C9B42362E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC4AB01-844B-4A22-84C4-367C9B42362E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC4AB01-844B-4A22-84C4-367C9B42362E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAA761A-324B-4D00-9FF4-476BA4DAF97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAA761A-324B-4D00-9FF4-476BA4DAF97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAA761A-324B-4D00-9FF4-476BA4DAF97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAA761A-324B-4D00-9FF4-476BA4DAF97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ECC4AB01-844B-4A22-84C4-367C9B42362E} = {05879F90-813C-4D29-A1F2-468FC4A01C04}
+		{FEAA761A-324B-4D00-9FF4-476BA4DAF97E} = {05879F90-813C-4D29-A1F2-468FC4A01C04}
+		{0F48796D-2EC7-4FB8-AA0B-81D1B7F53DF6} = {279EDFD0-207C-4F86-BE17-CD43375E7757}
+		{083BDC77-8196-4E34-8347-B53E1423EACA} = {CA7CB001-EBF9-4440-AFEC-2B468E500FE2}
+		{F48BB1B4-C5EB-4409-A8F0-098087304A61} = {083BDC77-8196-4E34-8347-B53E1423EACA}
+	EndGlobalSection
+EndGlobal
