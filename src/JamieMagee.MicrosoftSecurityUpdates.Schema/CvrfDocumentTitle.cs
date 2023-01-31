@@ -1,11 +1,5 @@
 namespace JamieMagee.MicrosoftSecurityUpdates.Schema;
 
-public sealed record CvrfDocument
-{
-    [JsonPropertyName("DocumentTitle")]
-    public CvrfDocumentTitle DocumentTitle { get; init; }
-}
-
 public sealed record CvrfDocumentTitle
 {
     [JsonPropertyName("lang")]
