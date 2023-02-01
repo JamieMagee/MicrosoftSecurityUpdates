@@ -6,7 +6,7 @@ public sealed record BranchType
     public IEnumerable<object> Items { get; init; }
 
     [JsonPropertyName("Type")]
-    public uint Type { get; init; }
+    public BranchTypeType Type { get; init; }
 
     [JsonPropertyName("Name")]
     public string Name { get; init; }

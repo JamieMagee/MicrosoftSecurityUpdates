@@ -9,7 +9,7 @@ public sealed record CvrfDocumentPublisher
     public CvrfDocumentPublisherIssuingAuthority IssuingAuthority { get; init; }
 
     [JsonPropertyName("Type")]
-    public uint Type { get; init; }
+    public PublisherType Type { get; init; }
 
     [JsonPropertyName("VendorID")]
     public CvrfDocumentPublisherIssuingAuthority VendorId { get; init; }

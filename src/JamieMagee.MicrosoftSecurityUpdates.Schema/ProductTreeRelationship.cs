@@ -9,7 +9,7 @@ public sealed record ProductTreeRelationship
     public string ProductReference { get; init; }
 
     [JsonPropertyName("RelationType")]
-    public uint RelationType { get; init; }
+    public RelationType RelationType { get; init; }
 
     [JsonPropertyName("RelatesToProductReference")]
     public string RelatesToProductReference { get; init; }

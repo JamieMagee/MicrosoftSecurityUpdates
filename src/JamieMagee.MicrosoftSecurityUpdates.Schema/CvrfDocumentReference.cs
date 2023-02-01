@@ -9,5 +9,5 @@ public sealed record CvrfDocumentReference
     public CvrfDocumentReferenceDescription Description { get; init; }
 
     [JsonPropertyName("Type")]
-    public uint Type { get; init; }
+    public ReferenceType Type { get; init; }
 }

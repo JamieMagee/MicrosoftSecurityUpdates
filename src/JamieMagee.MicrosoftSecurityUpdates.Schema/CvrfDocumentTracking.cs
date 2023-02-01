@@ -6,7 +6,7 @@ public sealed record CvrfDocumentTracking
     public CvrfDocumentTrackingIdentification Identification { get; init; }
 
     [JsonPropertyName("Status")]
-    public uint Status { get; init; }
+    public CvrfDocumentTrackingStatus Status { get; init; }
 
     [JsonPropertyName("Version")]
     public string Version { get; init; }
