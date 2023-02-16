@@ -1,6 +1,8 @@
 # Microsoft Security Updates Client
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JamieMagee/MicrosoftSecurityUpdates/build.yml?branch=main&style=for-the-badge)](https://github.com/JamieMagee/MicrosoftSecurityUpdates/actions/workflows/build.yml?query=branch%3Amain)
+[![NuGet Package Version](https://img.shields.io/nuget/v/JamieMagee.MicrosoftSecurityUpdates.Client?style=for-the-badge)](https://www.nuget.org/packages/JamieMagee.MicrosoftSecurityUpdates.Client/)
+[![NuGet Package Downloads](https://img.shields.io/nuget/dt/JamieMagee.MicrosoftSecurityUpdates.Client?style=for-the-badge)](https://www.nuget.org/packages/JamieMagee.MicrosoftSecurityUpdates.Client/)
 [![MIT License](https://img.shields.io/github/license/JamieMagee/MicrosoftSecurityUpdates?style=for-the-badge)](https://github.com/JamieMagee/MicrosoftSecurityUpdates/blob/main/LICENSE.md)
 
 An unofficial .NET API client for the [MSRC CVRF API][1]
