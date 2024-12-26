@@ -31,7 +31,7 @@ jobs:
           lfs: true
           fetch-depth: 0
       - name: "Install .NET Core SDK"
-        uses: actions/setup-dotnet@3447fd6a9f9e57506b15f895c5b76d3b197dc7c2 # v3.2.0
+        uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8 # v3.3.0
 
       - name: "Dotnet Tool Restore"
         run: dotnet tool restore
