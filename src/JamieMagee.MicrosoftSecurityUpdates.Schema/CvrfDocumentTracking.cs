@@ -21,5 +21,5 @@ public sealed record CvrfDocumentTracking
     public DateTimeOffset CurrentReleaseDate { get; init; }
 
     [JsonPropertyName("Generator")]
-    public required CvrfDocumentTrackingGenerator Generator { get; init; }
+    public CvrfDocumentTrackingGenerator? Generator { get; init; }
 }

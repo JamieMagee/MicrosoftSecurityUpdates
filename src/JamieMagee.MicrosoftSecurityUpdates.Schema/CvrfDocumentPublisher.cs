@@ -12,5 +12,5 @@ public sealed record CvrfDocumentPublisher
     public PublisherType Type { get; init; }
 
     [JsonPropertyName("VendorID")]
-    public required CvrfDocumentPublisherIssuingAuthority VendorId { get; init; }
+    public CvrfDocumentPublisherIssuingAuthority? VendorId { get; init; }
 }

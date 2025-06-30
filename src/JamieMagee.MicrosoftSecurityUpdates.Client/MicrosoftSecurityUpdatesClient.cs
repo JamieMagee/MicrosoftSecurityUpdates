@@ -2,9 +2,13 @@ namespace JamieMagee.MicrosoftSecurityUpdates.Client;
 
 using System.Reflection;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using JamieMagee.MicrosoftSecurityUpdates.Client.Models;
 
-public sealed class MicrosoftSecurityUpdatesClient : IMicrosoftSecurityUpdatesClient, IDisposable
+/// <summary>
+/// Client for interacting with the Microsoft Security Updates API.
+/// </summary>
+public sealed partial class MicrosoftSecurityUpdatesClient : IMicrosoftSecurityUpdatesClient, IDisposable
 {
     private readonly HttpClient httpClient;
     private readonly bool shouldDisposeHttpClient;
@@ -44,6 +48,11 @@ public sealed class MicrosoftSecurityUpdatesClient : IMicrosoftSecurityUpdatesCl
             throw new ArgumentException("ID cannot be null or whitespace.", nameof(id));
         }
 
+        if (!CvrfIdFormatRegex().IsMatch(id))
+        {
+            throw new ArgumentException("ID must be in the format yyyy-MMM (e.g., 2022-Jun, 2024-May, 2023-Dec).", nameof(id));
+        }
+
         var response = await this.httpClient.GetAsync($"cvrf/{id}", cancellationToken).ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
 
@@ -71,6 +80,11 @@ public sealed class MicrosoftSecurityUpdatesClient : IMicrosoftSecurityUpdatesCl
             throw new ArgumentException("ID cannot be null or whitespace.", nameof(id));
         }
 
+        if (!UpdateIdFormatRegex().IsMatch(id))
+        {
+            throw new ArgumentException("ID must be in one of the following formats: yyyy-MMM (e.g., 2024-May), CVE-yyyy-nnnn (e.g., CVE-2024-1234), or yyyy (e.g., 2024).", nameof(id));
+        }
+
         var response = await this.httpClient.GetAsync($"updates/{id}", cancellationToken).ConfigureAwait(false);
         response.EnsureSuccessStatusCode();
 
@@ -80,6 +94,23 @@ public sealed class MicrosoftSecurityUpdatesClient : IMicrosoftSecurityUpdatesCl
 
         return wrapper.Value;
     }
+
+    /// <summary>
+    /// Gets a regex for validating CVRF ID format (yyyy-MMM, e.g., 2022-Jun, 2024-May, 2023-Dec).
+    /// </summary>
+    /// <returns>A compiled regex for CVRF ID validation.</returns>
+    [GeneratedRegex(@"^\d{4}-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$")]
+    private static partial Regex CvrfIdFormatRegex();
+
+    /// <summary>
+    /// Gets a regex for validating Update ID format. Supports:
+    /// - Update ID: yyyy-MMM (e.g., 2024-May, 2022-Jun)
+    /// - CVE ID: CVE-yyyy-nnnn (e.g., CVE-2024-1234)
+    /// - Year: yyyy (e.g., 2024, 2023)
+    /// </summary>
+    /// <returns>A compiled regex for Update ID validation.</returns>
+    [GeneratedRegex(@"^(\d{4}-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)|CVE-\d{4}-\d+|\d{4})$")]
+    private static partial Regex UpdateIdFormatRegex();
 
     private static JsonSerializerOptions CreateJsonSerializerOptions() => new()
     {

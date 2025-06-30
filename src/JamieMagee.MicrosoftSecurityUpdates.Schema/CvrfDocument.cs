@@ -18,16 +18,16 @@ public sealed record CvrfDocument
     public required IEnumerable<CvrfDocumentNote> DocumentNotes { get; init; }
 
     [JsonPropertyName("DocumentDistribution")]
-    public required CvrfDocumentDistribution DocumentDistribution { get; init; }
+    public CvrfDocumentDistribution? DocumentDistribution { get; init; }
 
     [JsonPropertyName("AggregateSeverity")]
-    public required CvrfDocumentAggregateSeverity AggregateSeverity { get; init; }
+    public CvrfDocumentAggregateSeverity? AggregateSeverity { get; init; }
 
     [JsonPropertyName("DocumentReferences")]
-    public required IEnumerable<CvrfDocumentReference> DocumentReferences { get; init; }
+    public IEnumerable<CvrfDocumentReference>? DocumentReferences { get; init; }
 
     [JsonPropertyName("Acknowledgments")]
-    public required IEnumerable<CvrfDocumentAcknowledgment> Acknowledgments { get; init; }
+    public IEnumerable<CvrfDocumentAcknowledgment>? Acknowledgments { get; init; }
 
     [JsonPropertyName("ProductTree")]
     public required ProductTree ProductTree { get; init; }

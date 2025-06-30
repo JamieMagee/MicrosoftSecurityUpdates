@@ -9,8 +9,8 @@ public sealed record ProductTree
     public required IEnumerable<FullProductName> FullProductName { get; init; }
 
     [JsonPropertyName("Relationship")]
-    public required IEnumerable<ProductTreeRelationship> Relationship { get; init; }
+    public IEnumerable<ProductTreeRelationship>? Relationship { get; init; }
 
     [JsonPropertyName("ProductGroups")]
-    public required IEnumerable<ProductTreeGroup> ProductGroups { get; init; }
+    public IEnumerable<ProductTreeGroup>? ProductGroups { get; init; }
 }
