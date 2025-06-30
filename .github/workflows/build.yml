@@ -47,7 +47,8 @@ jobs:
           mkdir -p ./artifacts
           dotnet pack --configuration Release --no-build --no-restore \
             --include-symbols \
-            --output ./artifacts \
+            --output ./artifacts
+        shell: bash
 
       - name: "Publish artifacts"
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
