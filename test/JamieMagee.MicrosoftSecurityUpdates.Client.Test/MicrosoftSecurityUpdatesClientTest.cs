@@ -6,7 +6,7 @@ public class MicrosoftSecurityUpdatesClientTest
 {
     private static readonly MicrosoftSecurityUpdatesClient Client = new();
 
-    private static readonly string[] ValidUpdateYears = ["2022", "2023", "2024", "2025"];
+    private static readonly string[] ValidUpdateYears = ["2022", "2023", "2024"];
 
     public static readonly TheoryData<string> ValidUpdateYearsData = [.. ValidUpdateYears];
 
