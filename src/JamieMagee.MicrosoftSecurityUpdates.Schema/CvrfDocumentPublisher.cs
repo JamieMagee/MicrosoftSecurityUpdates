@@ -3,14 +3,14 @@ namespace JamieMagee.MicrosoftSecurityUpdates.Schema;
 public sealed record CvrfDocumentPublisher
 {
     [JsonPropertyName("ContactDetails")]
-    public CvrfDocumentPublisherContactDetails ContactDetails { get; init; }
+    public required CvrfDocumentPublisherContactDetails ContactDetails { get; init; }
 
     [JsonPropertyName("IssuingAuthority")]
-    public CvrfDocumentPublisherIssuingAuthority IssuingAuthority { get; init; }
+    public required CvrfDocumentPublisherIssuingAuthority IssuingAuthority { get; init; }
 
     [JsonPropertyName("Type")]
     public PublisherType Type { get; init; }
 
     [JsonPropertyName("VendorID")]
-    public CvrfDocumentPublisherIssuingAuthority VendorId { get; init; }
+    public required CvrfDocumentPublisherIssuingAuthority VendorId { get; init; }
 }

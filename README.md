@@ -9,27 +9,72 @@ An unofficial .NET API client for the [MSRC CVRF API][1]
 
 ## Usage
 
-1. `dotnet add package JamieMagee.MicrosoftSecurityUpdates.Client`
-2. Create an instance of `MicrosoftSecurityUpdatesClient`:
+There are two main ways to use this client:
+
+- Dependency Injection
+- Manual Instantiation
+
+### Dependency Injection
+
+To use the client with dependency injection, register it in your `IServiceCollection`:
 
 ```csharp
-using var client = new MicrosoftSecurityUpdatesClient();
+using JamieMagee.MicrosoftSecurityUpdates.Client;
+
+// In Program.cs
+builder.Services.AddMicrosoftSecurityUpdatesClient();
+
+// Or with custom HttpClient configuration
+builder.Services.AddMicrosoftSecurityUpdatesClient(httpClient =>
+{
+    // Add custom headers, configure policies, etc.
+    httpClient.Timeout = TimeSpan.FromSeconds(30);
+});
 ```
 
-3. Use the client to get information about security updates:
+Then inject `IMicrosoftSecurityUpdatesClient` into your services:
 
 ```csharp
-// Get all updates
+public class SecurityService
+{
+    private readonly IMicrosoftSecurityUpdatesClient _client;
+
+    public SecurityService(IMicrosoftSecurityUpdatesClient client)
+    {
+        _client = client;
+    }
+
+    public async Task<IEnumerable<Update>> GetLatestUpdatesAsync()
+    {
+        return await _client.GetUpdatesAsync();
+    }
+
+    public async Task<CvrfDocument> GetSecurityBulletinAsync(string id)
+    {
+        return await _client.GetCvrfByIdAsync(id);
+    }
+}
+```
+
+### Manual Instantiation
+
+You can also create instances manually:
+
+```csharp
+// Using default HttpClient
+using var client = new MicrosoftSecurityUpdatesClient();
+
+// Using your own HttpClient (for advanced scenarios)
+using var httpClient = new HttpClient();
+httpClient.Timeout = TimeSpan.FromSeconds(30);
+var client = new MicrosoftSecurityUpdatesClient(httpClient);
+
+// Get updates
 var updates = await client.GetUpdatesAsync();
-// Get all updates by year or month
-var updates2022 = await client.GetUpdatesAsync("2022");
-var updates2022Dec = await client.GetUpdatesAsync("2022-Dec");
-// Get CVRF by month
-var cvrf2022Dec = await client.GetCvrfByIdAsync("2022-Dec");
 ```
 
 ## License
 
 All packages in this repository are licensed under [the MIT license](https://opensource.org/licenses/MIT).
 
-[1]: https://api.msrc.microsoft.com/cvrf/v2.0/swagger/index
+[1]: https://msrc.microsoft.com/update-guide

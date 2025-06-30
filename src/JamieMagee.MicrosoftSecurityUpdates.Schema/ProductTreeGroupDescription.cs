@@ -6,5 +6,5 @@ public sealed record ProductTreeGroupDescription
     public string? Lang { get; init; }
 
     [JsonPropertyName("Value")]
-    public string Value { get; init; }
+    public required string Value { get; init; }
 }

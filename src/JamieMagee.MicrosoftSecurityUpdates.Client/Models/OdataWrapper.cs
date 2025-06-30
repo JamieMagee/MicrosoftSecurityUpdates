@@ -1,6 +1,6 @@
 namespace JamieMagee.MicrosoftSecurityUpdates.Client.Models;
 
-internal record OdataWrapper<T>
+internal sealed record OdataWrapper<T>
     where T : class
 {
     [JsonPropertyName("@odata.context")]

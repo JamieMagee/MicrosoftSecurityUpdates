@@ -3,16 +3,16 @@ namespace JamieMagee.MicrosoftSecurityUpdates.Schema;
 public sealed record CvrfDocumentTracking
 {
     [JsonPropertyName("Identification")]
-    public CvrfDocumentTrackingIdentification Identification { get; init; }
+    public required CvrfDocumentTrackingIdentification Identification { get; init; }
 
     [JsonPropertyName("Status")]
     public CvrfDocumentTrackingStatus Status { get; init; }
 
     [JsonPropertyName("Version")]
-    public string Version { get; init; }
+    public required string Version { get; init; }
 
     [JsonPropertyName("RevisionHistory")]
-    public IEnumerable<CvrfDocumentTrackingRevision> RevisionHistory { get; init; }
+    public required IEnumerable<CvrfDocumentTrackingRevision> RevisionHistory { get; init; }
 
     [JsonPropertyName("InitialReleaseDate")]
     public DateTimeOffset InitialReleaseDate { get; init; }
@@ -21,5 +21,5 @@ public sealed record CvrfDocumentTracking
     public DateTimeOffset CurrentReleaseDate { get; init; }
 
     [JsonPropertyName("Generator")]
-    public CvrfDocumentTrackingGenerator Generator { get; init; }
+    public required CvrfDocumentTrackingGenerator Generator { get; init; }
 }

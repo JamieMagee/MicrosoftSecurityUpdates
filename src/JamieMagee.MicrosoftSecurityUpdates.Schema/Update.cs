@@ -6,7 +6,7 @@ public sealed record Update
     ///     Alternative ID for CVRF document.
     /// </summary>
     [JsonPropertyName("Alias")]
-    public string Alias { get; init; }
+    public required string Alias { get; init; }
 
     /// <summary>
     ///     Date that the CVRF document was last modified.
@@ -16,17 +16,17 @@ public sealed record Update
     /// <summary>
     ///     URL of CVRF document (for CVRF endpoint).
     /// </summary>
-    public string CvrfUrl { get; init; }
+    public required string CvrfUrl { get; init; }
 
     /// <summary>
     ///     Title of CVRF document.
     /// </summary>
-    public string DocumentTitle { get; init; }
+    public required string DocumentTitle { get; init; }
 
     /// <summary>
     ///     Unique identifier for CVRF document, often yyyy-mmm.
     /// </summary>
-    public string Id { get; init; }
+    public required string Id { get; init; }
 
     /// <summary>
     ///     Date that the CVRF document was initially released.
@@ -36,5 +36,5 @@ public sealed record Update
     /// <summary>
     ///     Aggregate severity.
     /// </summary>
-    public string Severity { get; init; }
+    public required string Severity { get; init; }
 }

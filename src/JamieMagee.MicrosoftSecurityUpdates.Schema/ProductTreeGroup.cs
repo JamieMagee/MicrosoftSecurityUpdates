@@ -3,11 +3,11 @@ namespace JamieMagee.MicrosoftSecurityUpdates.Schema;
 public sealed record ProductTreeGroup
 {
     [JsonPropertyName("Description")]
-    public ProductTreeGroupDescription Description { get; init; }
+    public required ProductTreeGroupDescription Description { get; init; }
 
     [JsonPropertyName("ProductID")]
-    public IEnumerable<string> ProductId { get; init; }
+    public required IEnumerable<string> ProductId { get; init; }
 
     [JsonPropertyName("GroupID")]
-    public string GroupId { get; init; }
+    public required string GroupId { get; init; }
 }

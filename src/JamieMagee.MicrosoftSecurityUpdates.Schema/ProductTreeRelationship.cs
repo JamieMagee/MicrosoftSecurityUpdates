@@ -3,14 +3,14 @@ namespace JamieMagee.MicrosoftSecurityUpdates.Schema;
 public sealed record ProductTreeRelationship
 {
     [JsonPropertyName("FullProductName")]
-    public IEnumerable<FullProductName> FullProductName { get; init; }
+    public required IEnumerable<FullProductName> FullProductName { get; init; }
 
     [JsonPropertyName("ProductReference")]
-    public string ProductReference { get; init; }
+    public required string ProductReference { get; init; }
 
     [JsonPropertyName("RelationType")]
     public RelationType RelationType { get; init; }
 
     [JsonPropertyName("RelatesToProductReference")]
-    public string RelatesToProductReference { get; init; }
+    public required string RelatesToProductReference { get; init; }
 }
